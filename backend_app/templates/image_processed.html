@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processed</title>
+    <style>
+        .processed-image {
+            max-width: 500px; /* 设置最大宽度 */
+            max-height: 500px; /* 设置最大高度 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Processed Successfully</h1>
+    <img class="processed-image" src="{{ image_url }}" alt="Processed Image">
+    <a href="{% url 'upload_image' %}">Upload Another Image</a>
+</body>
+</html>

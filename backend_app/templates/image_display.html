@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processed</title>
+</head>
+<body>
+    <h1>Image Processed Successfully</h1>
+    <div style="display: flex;">
+        <div>
+            <h2>Uploaded Image</h2>
+            <img src="{{ uploaded_image_url }}" alt="Uploaded Image" style="max-width: 100%; max-height: 600px;">
+        </div>
+        <div>
+            <h2>Processed Image</h2>
+            <img src="{{ processed_image_url }}" alt="Processed Image" style="max-width: 100%; max-height: 600px;">
+        </div>
+    </div>
+    {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+    {% endif %}
+    <a href="{% url 'upload_image' %}">Upload Another Image</a>
+</body>
+</html>

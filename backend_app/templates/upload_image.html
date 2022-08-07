@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Images</title>
+</head>
+<body>
+    <h1>Upload Images</h1>
+    {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- 添加一个用于输入人脸索引值的字段 -->
+        <label for="{{ form.user_id.id_for_label }}">User id:</label>
+        {{ form.user_id }}
+        <br>
+        <!-- 添加一个输入字段用于接收源索引值 -->
+        <label for="src_face_index">Source Index:</label>
+        <input type="number" name="src_face_index" id="src_face_index">
+        <br>
+        <!-- 添加一个输入字段用于接收目标索引值 -->
+        <label for="dst_face_index">Destination Index:</label>
+        <input type="number" name="dst_face_index" id="dst_face_index">
+        <br>
+        <label for="{{ form.first_image.id_for_label }}">First Image:</label>
+        {{ form.first_image }}
+        <br>
+        <label for="{{ form.second_image.id_for_label }}">Second Image:</label>
+        {{ form.second_image }}
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
