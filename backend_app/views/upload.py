@@ -1,10 +1,8 @@
 # backend_app/views.py
 from django.shortcuts import render
-from .forms import UploadImageForm
-from .forms import FirstImageForm
-from .forms import SecondImageForm
-from .models import UserImage, Image, Tag 
-from .tasks import process_and_save_image
+from ..forms import UploadImageForm,FirstImageForm,SecondImageForm
+from ..models import UserImage, Image, Tag 
+from ..tasks import process_and_save_image
 import traceback
 from celery.result import AsyncResult
 from django.http import JsonResponse

@@ -25,8 +25,8 @@ SECRET_KEY = "django-insecure-i+mnw%+4p$4+2#e#y(vtjttptulbsykn7uzn#yq*&7q-vstms)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['43.139.23.56']  # 或者使用域名 ['example.com']
+#ALLOWED_HOSTS = [] 
+ALLOWED_HOSTS = ['43.136.95.94']  # 或者使用域名 ['example.com']   '111.230.12.105'
 
 # Application definition
 
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",

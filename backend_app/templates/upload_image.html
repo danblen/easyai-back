@@ -9,7 +9,7 @@
     <p class="error">{{ error_message }}</p>
     {% endif %}
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+        <!-- {% csrf_token %} -->
         <!-- 添加一个用于输入人脸索引值的字段 -->
         <label for="{{ form.user_id.id_for_label }}">User id:</label>
         {{ form.user_id }}

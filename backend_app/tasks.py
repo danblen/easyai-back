@@ -13,16 +13,16 @@ def process_and_save_image(user_image_id):
     try:
         user_image_model = UserImage.objects.get(id=user_image_id)
 
-        print("user_image_model", user_image_model)
+        # print("user_image_model", user_image_model)
         user_image = UserImage.objects.get(id=user_image_id)
         input_face_index = user_image.src_face_index
         output_face_index = user_image.dst_face_index
-        print("user_image ", user_image, input_face_index, output_face_index)
+        # print("user_image ", user_image, input_face_index, output_face_index)
         fir_image_path = user_image.first_image.path
         sec_image_path = user_image.second_image.path
         first_image_absolute_path = default_storage.path(fir_image_path)
         second_image_absolute_path = default_storage.path(sec_image_path)
-        print('***********first_image_absolute_path:', first_image_absolute_path)
+        # print('***********first_image_absolute_path:', first_image_absolute_path)
         print('***********second_image_absolute_path:', second_image_absolute_path)
 
         processed_image = process_image(first_image_absolute_path, second_image_absolute_path, input_face_index, output_face_index)
@@ -34,8 +34,11 @@ def process_and_save_image(user_image_id):
         _, img_encoded = cv2.imencode('.jpg', processed_image)
         processed_image_content = ContentFile(img_encoded.tostring())
         processed_image_name = user_image_model.first_image.name.split('.')[0] + '_processed.' + user_image_model.first_image.name.split('.')[-1]
+        print("ok1111111111111111111111111111111111")
+        user_image_model.status="SUCCESS"
+        user_image_model.save()
         user_image_model.processed_image.save(processed_image_name, processed_image_content, save=True)
-        print("Processed image saved successfully.")
+        print("1Processed image saved successfully.")
 
         return user_image_model.id
 

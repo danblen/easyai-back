@@ -1,3 +1,16 @@
+### backend
+python3 manage.py runserver 0.0.0.0:8000
+修改task.py后需要重启celery
+celery -A backend_app worker -l info
+杀死所有celery进程
+killall -9 celery
+python3 manage.py createsuperuser：
+Username (leave blank to use 'ubuntu'): ubuntu
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+
 # backend_project
 ![image](https://github.com/MRYO-ga/backend_project/assets/41039177/7565f716-1c96-4761-b8b4-7e7e5b5ecf87)
 
