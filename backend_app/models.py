@@ -21,7 +21,8 @@ class UserImage(models.Model):
 class User(models.Model):
     user_id = models.CharField(max_length=100)
     points = models.IntegerField()
-    isCheck = models.BooleanField(default=False)
+    is_check = models.BooleanField(default=False)
+    last_check_date = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
